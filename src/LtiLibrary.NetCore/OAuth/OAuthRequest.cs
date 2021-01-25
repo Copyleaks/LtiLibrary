@@ -337,8 +337,6 @@ namespace LtiLibrary.NetCore.OAuth
 			var dataBuffer = Encoding.ASCII.GetBytes(signatureBase);
 			var hashBytes = hmac.ComputeHash(dataBuffer);
 			var sig = Convert.ToBase64String(hashBytes);
-			Console.WriteLine(signatureBase);
-			Console.WriteLine(sig);
 			return sig;
 		}
 	}
