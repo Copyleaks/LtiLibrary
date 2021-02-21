@@ -12,7 +12,7 @@ namespace LtiLibrary.NetCore.Extensions
 	/// <summary>
 	/// Extension methods for the <see cref="HttpRequestMessageExtensions"/> type.
 	/// </summary>
-	public static class HttpRequestMessageExtensions
+	internal static class HttpRequestMessageExtensions
 	{
 		public static void SetupHeaders(this HttpRequestMessage msg, string authToken = null)
 		{
