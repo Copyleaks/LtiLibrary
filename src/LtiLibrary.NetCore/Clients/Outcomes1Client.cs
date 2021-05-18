@@ -366,7 +366,10 @@ namespace LtiLibrary.NetCore.Clients
 									(await response.Content.ReadAsStreamAsync().ConfigureAwait(false));
 								var imsxResponseHeader = (imsx_ResponseHeaderInfoType)imsxResponseEnvelope.imsx_POXHeader.Item;
 								var imsxResponseStatus = imsxResponseHeader.imsx_statusInfo.imsx_codeMajor;
-
+								if (imsxResponseStatus == imsx_CodeMajorType.failure)
+								{
+									outcomeResponse.Exception = new Exception(imsxResponseHeader.imsx_statusInfo.imsx_description);
+								}
 								outcomeResponse.StatusCode = imsxResponseStatus == imsx_CodeMajorType.success
 									? HttpStatusCode.OK
 									: HttpStatusCode.BadRequest;
