@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Web.Mvc;
+//using System.Web.Mvc;
 using LtiLibrary.AspNetCore.Common;
 using LtiLibrary.AspNetCore.Extensions;
 using LtiLibrary.NetCore.Common;
 using LtiLibrary.NetCore.Lis.v1;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using HttpGetAttribute = Microsoft.AspNetCore.Mvc.HttpGetAttribute;
 
 namespace LtiLibrary.AspNetCore.Membership
 {
@@ -17,11 +20,11 @@ namespace LtiLibrary.AspNetCore.Membership
     /// Unless it is overridden, the route for this controller will be "ims/[controller]/context/{contextid}" named "MembershipApi".
     /// </remarks>
     [AddBodyHashHeader]
-    [Route("ims/[controller]/context/{contextid}", Name = "MembershipApi")]
+    [Microsoft.AspNetCore.Mvc.Route("ims/[controller]/context/{contextid}", Name = "MembershipApi")]
     [Consumes(LtiConstants.LisMembershipContainerMediaType)]
     [Produces(LtiConstants.LisMembershipContainerMediaType)]
-    public abstract class MembershipControllerBase : Controller
-    {
+    public abstract class MembershipControllerBase : Microsoft.AspNetCore.Mvc.ControllerBase
+	{
         /// <summary>
         /// Populate the <see cref="GetMembershipResponse"/> with the membership and set the StatusCode
         /// to signify success or failure.
@@ -127,14 +130,14 @@ namespace LtiLibrary.AspNetCore.Membership
             return new UnauthorizedResponse();
         }
 
-        /// <summary>
-        /// Creates a <see cref="UnauthorizedResponse" /> that produces a <see cref="StatusCodes.Status401Unauthorized" /> response.
-        /// </summary>
-        /// <param name="value">The content value to format in the entity body.</param>
-        /// <returns>The created <see cref="UnauthorizedResponse" /> for the response.</returns>
-        public UnauthorizedResponse Unauthorized(object value)
-        {
-            return new UnauthorizedResponse(value);
-        }
-    }
+		/// <summary>
+		/// Creates a <see cref="UnauthorizedResponse" /> that produces a <see cref="StatusCodes.Status401Unauthorized" /> response.
+		/// </summary>
+		/// <param name="value">The content value to format in the entity body.</param>
+		/// <returns>The created <see cref="UnauthorizedResponse" /> for the response.</returns>
+		public UnauthorizedResponse Unauthorized(object value)
+		{
+			return new UnauthorizedResponse(value);
+		}
+	}
 }

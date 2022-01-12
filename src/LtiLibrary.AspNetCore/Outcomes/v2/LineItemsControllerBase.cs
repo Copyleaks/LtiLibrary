@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using LtiLibrary.AspNetCore.Common;
 using LtiLibrary.NetCore.Common;
 using LtiLibrary.NetCore.Lis.v2;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace LtiLibrary.AspNetCore.Outcomes.v2
 {
@@ -18,8 +20,8 @@ namespace LtiLibrary.AspNetCore.Outcomes.v2
     [Route("ims/courses/{contextId}/lineitems/{id?}", Name = "LineItemsApi")]
     [Consumes(LtiConstants.LisLineItemMediaType, LtiConstants.LisLineItemResultsMediaType, LtiConstants.LisLineItemContainerMediaType)]
     [Produces(LtiConstants.LisLineItemMediaType, LtiConstants.LisLineItemResultsMediaType, LtiConstants.LisLineItemContainerMediaType)]
-    public abstract class LineItemsControllerBase : Controller
-    {
+    public abstract class LineItemsControllerBase : Microsoft.AspNetCore.Mvc.ControllerBase
+	{
         /// <summary>
         /// Initializes a new instance of the LineItemsControllerBase class.
         /// </summary>
@@ -66,7 +68,7 @@ namespace LtiLibrary.AspNetCore.Outcomes.v2
         /// <summary>
         /// Delete a particular LineItem instance.
         /// </summary>
-        [HttpDelete]
+        [Microsoft.AspNetCore.Mvc.HttpDelete]
         public async Task<IActionResult> DeleteAsync(string contextId, string id)
         {
             try
@@ -86,7 +88,7 @@ namespace LtiLibrary.AspNetCore.Outcomes.v2
         /// <summary>
         /// Get a paginated list of LineItem resources from a LineItemContainer, or get a representation of a particular LineItem instance.
         /// </summary>
-        [HttpGet]
+        [Microsoft.AspNetCore.Mvc.HttpGet]
         public async Task<IActionResult> GetAsync(string contextId = null, string id = null, int? limit = null, string activityId = null, string firstPage = null, int? p = null)
         {
             try
@@ -155,8 +157,8 @@ namespace LtiLibrary.AspNetCore.Outcomes.v2
         /// Create a new LineItem instance.
         /// </summary>
         //[HttpPost("courses/{contextId}/lineitems/{id?}")]
-        [HttpPost]
-        public async Task<IActionResult> PostAsync(string contextId, [ModelBinder(BinderType = typeof(LineItemModelBinder))] LineItem lineItem)
+        [Microsoft.AspNetCore.Mvc.HttpPost]
+        public async Task<IActionResult> PostAsync(string contextId, [Microsoft.AspNetCore.Mvc.ModelBinder(BinderType = typeof(LineItemModelBinder))] LineItem lineItem)
         {
             try
             {
@@ -179,8 +181,8 @@ namespace LtiLibrary.AspNetCore.Outcomes.v2
         /// <summary>
         /// Update a particular LineItem instance.
         /// </summary>
-        [HttpPut]
-        public async Task<IActionResult> PutAsync([ModelBinder(BinderType = typeof(LineItemModelBinder))] LineItem lineItem)
+        [Microsoft.AspNetCore.Mvc.HttpPut]
+        public async Task<IActionResult> PutAsync([Microsoft.AspNetCore.Mvc.ModelBinder(BinderType = typeof(LineItemModelBinder))] LineItem lineItem)
         {
             try
             {

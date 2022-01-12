@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Globalization;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using LtiLibrary.AspNetCore.Common;
 using LtiLibrary.AspNetCore.Extensions;
 using LtiLibrary.NetCore.Common;
 using LtiLibrary.NetCore.Lti.v1;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using HttpPostAttribute = Microsoft.AspNetCore.Mvc.HttpPostAttribute;
+using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace LtiLibrary.AspNetCore.Outcomes.v1
 {
@@ -21,8 +24,8 @@ namespace LtiLibrary.AspNetCore.Outcomes.v1
     [Route("ims/[controller]", Name = "OutcomesApi")]
     [Consumes("application/xml")]
     [Produces("application/xml")]
-    public abstract class OutcomesControllerBase : Controller
-    {
+    public abstract class OutcomesControllerBase : Microsoft.AspNetCore.Mvc.ControllerBase
+	{
         /// <summary>
         /// Delete the result (grade, score, outcome) from the consumer.
         /// </summary>
@@ -40,7 +43,7 @@ namespace LtiLibrary.AspNetCore.Outcomes.v1
         /// Receive the Outcomes 1.0 Post request.
         /// </summary>
         [HttpPost]
-        public virtual async Task<IActionResult> Post([ModelBinder(BinderType = typeof(ImsxXmlMediaTypeModelBinder))] imsx_POXEnvelopeType request)
+        public virtual async Task<IActionResult> Post([Microsoft.AspNetCore.Mvc.ModelBinder(BinderType = typeof(ImsxXmlMediaTypeModelBinder))] imsx_POXEnvelopeType request)
         {
             if (request == null)
             {

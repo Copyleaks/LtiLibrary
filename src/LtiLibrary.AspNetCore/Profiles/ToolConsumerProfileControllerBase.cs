@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using LtiLibrary.NetCore.Common;
 using LtiLibrary.NetCore.Lti.v2;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using HttpGetAttribute = Microsoft.AspNetCore.Mvc.HttpGetAttribute;
+using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace LtiLibrary.AspNetCore.Profiles
 {
@@ -16,8 +19,8 @@ namespace LtiLibrary.AspNetCore.Profiles
     [Route("ims/[controller]", Name = "ToolConsumerProfileApi")]
     [Consumes(LtiConstants.LtiToolConsumerProfileMediaType)]
     [Produces(LtiConstants.LtiToolConsumerProfileMediaType)]
-    public abstract class ToolConsumerProfileControllerBase : Controller
-    {
+    public abstract class ToolConsumerProfileControllerBase : Microsoft.AspNetCore.Mvc.ControllerBase
+	{
         /// <summary>
         /// Return the ToolConsumerProfile.
         /// </summary>

@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using LtiLibrary.NetCore.Common;
 using LtiLibrary.NetCore.Lis.v2;
+using System.Web.Mvc;
+using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace LtiLibrary.AspNetCore.Outcomes.v2
 {
@@ -17,8 +19,8 @@ namespace LtiLibrary.AspNetCore.Outcomes.v2
     [Route("ims/courses/{contextId}/lineitems/{lineItemId}/results/{id?}", Name = "ResultsApi")]
     [Consumes(LtiConstants.LisResultMediaType, LtiConstants.LisResultContainerMediaType)]
     [Produces(LtiConstants.LisResultMediaType, LtiConstants.LisResultContainerMediaType)]
-    public abstract class ResultsControllerBase : Controller
-    {
+    public abstract class ResultsControllerBase : Microsoft.AspNetCore.Mvc.ControllerBase
+	{
         /// <summary>
         /// Initialize a new instance of the ResultsControllerBase class.
         /// </summary>
@@ -55,7 +57,7 @@ namespace LtiLibrary.AspNetCore.Outcomes.v2
         /// <summary>
         /// Delete a particular LisResult instance.
         /// </summary>
-        [HttpDelete]
+        [Microsoft.AspNetCore.Mvc.HttpDelete]
         public async Task<IActionResult> DeleteAsync(string contextId, string lineItemId, string id)
         {
             try
@@ -75,7 +77,7 @@ namespace LtiLibrary.AspNetCore.Outcomes.v2
         /// <summary>
         /// Get a paginated list of LisResult resources from a ResultContainer, or get a representation of a particular LisResult instance.
         /// </summary>
-        [HttpGet]
+        [Microsoft.AspNetCore.Mvc.HttpGet]
         public async Task<IActionResult> GetAsync(string contextId = null, string lineItemId = null, string id = null, int? limit = null, string firstPage = null, int? p = null)
         {
             try
@@ -130,8 +132,8 @@ namespace LtiLibrary.AspNetCore.Outcomes.v2
         /// <summary>
         /// Create a new LisResult instance.
         /// </summary>
-        [HttpPost]
-        public async Task<IActionResult> PostAsync(string contextId, string lineItemId, [ModelBinder(BinderType = typeof(LisResultModelBinder))] Result result)
+        [Microsoft.AspNetCore.Mvc.HttpPost]
+        public async Task<IActionResult> PostAsync(string contextId, string lineItemId, [Microsoft.AspNetCore.Mvc.ModelBinder(BinderType = typeof(LisResultModelBinder))] Result result)
         {
             try
             {
@@ -157,8 +159,8 @@ namespace LtiLibrary.AspNetCore.Outcomes.v2
         /// <summary>
         /// Update a particular LisResult instance.
         /// </summary>
-        [HttpPut]
-        public async Task<IActionResult> PutAsync(string contextId, string lineItemId, string id, [ModelBinder(BinderType = typeof(LisResultModelBinder))] Result result)
+        [Microsoft.AspNetCore.Mvc.HttpPut]
+        public async Task<IActionResult> PutAsync(string contextId, string lineItemId, string id, [Microsoft.AspNetCore.Mvc.ModelBinder(BinderType = typeof(LisResultModelBinder))] Result result)
         {
             try
             {
