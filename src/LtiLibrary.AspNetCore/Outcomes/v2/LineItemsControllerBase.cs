@@ -1,13 +1,11 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using LtiLibrary.AspNetCore.Common;
+﻿using LtiLibrary.AspNetCore.Common;
 using LtiLibrary.NetCore.Common;
 using LtiLibrary.NetCore.Lis.v2;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace LtiLibrary.AspNetCore.Outcomes.v2
 {
@@ -157,7 +155,7 @@ namespace LtiLibrary.AspNetCore.Outcomes.v2
         /// Create a new LineItem instance.
         /// </summary>
         //[HttpPost("courses/{contextId}/lineitems/{id?}")]
-        [Microsoft.AspNetCore.Mvc.HttpPost]
+        [HttpPost]
         public async Task<IActionResult> PostAsync(string contextId, [Microsoft.AspNetCore.Mvc.ModelBinder(BinderType = typeof(LineItemModelBinder))] LineItem lineItem)
         {
             try

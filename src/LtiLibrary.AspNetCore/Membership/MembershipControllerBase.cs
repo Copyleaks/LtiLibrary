@@ -1,14 +1,11 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-//using System.Web.Mvc;
-using LtiLibrary.AspNetCore.Common;
+﻿using LtiLibrary.AspNetCore.Common;
 using LtiLibrary.AspNetCore.Extensions;
 using LtiLibrary.NetCore.Common;
 using LtiLibrary.NetCore.Lis.v1;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using HttpGetAttribute = Microsoft.AspNetCore.Mvc.HttpGetAttribute;
+using System;
+using System.Threading.Tasks;
 
 namespace LtiLibrary.AspNetCore.Membership
 {
@@ -23,7 +20,7 @@ namespace LtiLibrary.AspNetCore.Membership
     [Microsoft.AspNetCore.Mvc.Route("ims/[controller]/context/{contextid}", Name = "MembershipApi")]
     [Consumes(LtiConstants.LisMembershipContainerMediaType)]
     [Produces(LtiConstants.LisMembershipContainerMediaType)]
-    public abstract class MembershipControllerBase : Microsoft.AspNetCore.Mvc.ControllerBase
+    public abstract class MembershipControllerBase : ControllerBase
 	{
         /// <summary>
         /// Populate the <see cref="GetMembershipResponse"/> with the membership and set the StatusCode

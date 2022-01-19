@@ -1,12 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
-using LtiLibrary.AspNetCore.Common;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using LtiLibrary.AspNetCore.Common;
 using LtiLibrary.NetCore.Common;
 using LtiLibrary.NetCore.Lis.v2;
-using System.Web.Mvc;
-using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace LtiLibrary.AspNetCore.Outcomes.v2
 {
@@ -19,7 +17,7 @@ namespace LtiLibrary.AspNetCore.Outcomes.v2
     [Route("ims/courses/{contextId}/lineitems/{lineItemId}/results/{id?}", Name = "ResultsApi")]
     [Consumes(LtiConstants.LisResultMediaType, LtiConstants.LisResultContainerMediaType)]
     [Produces(LtiConstants.LisResultMediaType, LtiConstants.LisResultContainerMediaType)]
-    public abstract class ResultsControllerBase : Microsoft.AspNetCore.Mvc.ControllerBase
+    public abstract class ResultsControllerBase : ControllerBase
 	{
         /// <summary>
         /// Initialize a new instance of the ResultsControllerBase class.
@@ -160,7 +158,7 @@ namespace LtiLibrary.AspNetCore.Outcomes.v2
         /// Update a particular LisResult instance.
         /// </summary>
         [Microsoft.AspNetCore.Mvc.HttpPut]
-        public async Task<IActionResult> PutAsync(string contextId, string lineItemId, string id, [Microsoft.AspNetCore.Mvc.ModelBinder(BinderType = typeof(LisResultModelBinder))] Result result)
+        public async Task<IActionResult> PutAsync(string contextId, string lineItemId, string id, [ModelBinder(BinderType = typeof(LisResultModelBinder))] Result result)
         {
             try
             {
