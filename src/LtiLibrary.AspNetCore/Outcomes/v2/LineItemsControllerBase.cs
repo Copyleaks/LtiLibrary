@@ -1,11 +1,11 @@
-﻿using LtiLibrary.AspNetCore.Common;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
+using LtiLibrary.AspNetCore.Common;
 using LtiLibrary.NetCore.Common;
 using LtiLibrary.NetCore.Lis.v2;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LtiLibrary.AspNetCore.Outcomes.v2
 {
@@ -19,7 +19,7 @@ namespace LtiLibrary.AspNetCore.Outcomes.v2
     [Consumes(LtiConstants.LisLineItemMediaType, LtiConstants.LisLineItemResultsMediaType, LtiConstants.LisLineItemContainerMediaType)]
     [Produces(LtiConstants.LisLineItemMediaType, LtiConstants.LisLineItemResultsMediaType, LtiConstants.LisLineItemContainerMediaType)]
     public abstract class LineItemsControllerBase : Microsoft.AspNetCore.Mvc.ControllerBase
-	{
+    {
         /// <summary>
         /// Initializes a new instance of the LineItemsControllerBase class.
         /// </summary>

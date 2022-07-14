@@ -7,8 +7,8 @@ namespace LtiLibrary.NetCore.Lti.v1
     /// resultData data type supported by Canvas.
     /// </summary>
     [Serializable]
-    [XmlType(TypeName = "Data.Type", Namespace="http://www.imsglobal.org/services/ltiv1p1/xsd/imsoms_v1p0")]
-    [XmlRoot("resultData", Namespace="http://www.imsglobal.org/services/ltiv1p1/xsd/imsoms_v1p0", IsNullable = true)]
+    [XmlType(TypeName = "Data.Type", Namespace = "http://www.imsglobal.org/services/ltiv1p1/xsd/imsoms_v1p0")]
+    [XmlRoot("resultData", Namespace = "http://www.imsglobal.org/services/ltiv1p1/xsd/imsoms_v1p0", IsNullable = true)]
     public class DataType
     {
         /// <summary>

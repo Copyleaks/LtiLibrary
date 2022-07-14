@@ -1,6 +1,6 @@
 ﻿using System;
-using Newtonsoft.Json.Serialization;
 using System.Reflection;
+using Newtonsoft.Json.Serialization;
 
 namespace LtiLibrary.NetCore.Common
 {
@@ -13,11 +13,11 @@ namespace LtiLibrary.NetCore.Common
         private readonly bool _unsetConverter;
 
         public JsonLdObjectContractResolver()
-         : this( false )
+         : this(false)
         {
         }
 
-        public JsonLdObjectContractResolver( bool unsetConverter )
+        public JsonLdObjectContractResolver(bool unsetConverter)
         {
             _unsetConverter = unsetConverter;
         }
@@ -27,13 +27,13 @@ namespace LtiLibrary.NetCore.Common
             if (typeof(JsonLdObject).GetTypeInfo().IsAssignableFrom(type))
             {
                 var contract = base.ResolveContract(type);
-                
+
                 // Set the Convert to null to prevent recursive call to JsonLdObjectConverter
-                if ( _unsetConverter )
+                if (_unsetConverter)
                 {
                     contract.Converter = null;
                 }
-                
+
                 return contract;
             }
             return base.ResolveContract(type);

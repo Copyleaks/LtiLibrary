@@ -1,10 +1,10 @@
-﻿using LtiLibrary.AspNetCore.Common;
+﻿using System;
+using System.Threading.Tasks;
+using LtiLibrary.AspNetCore.Common;
 using LtiLibrary.NetCore.Common;
 using LtiLibrary.NetCore.Lis.v2;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading.Tasks;
 
 namespace LtiLibrary.AspNetCore.Outcomes.v2
 {
@@ -18,7 +18,7 @@ namespace LtiLibrary.AspNetCore.Outcomes.v2
     [Consumes(LtiConstants.LisResultMediaType, LtiConstants.LisResultContainerMediaType)]
     [Produces(LtiConstants.LisResultMediaType, LtiConstants.LisResultContainerMediaType)]
     public abstract class ResultsControllerBase : ControllerBase
-	{
+    {
         /// <summary>
         /// Initialize a new instance of the ResultsControllerBase class.
         /// </summary>
@@ -138,7 +138,7 @@ namespace LtiLibrary.AspNetCore.Outcomes.v2
                 var dto = new PostResultDto(contextId, lineItemId, result);
 
                 await OnPostResult(dto).ConfigureAwait(false);
-                
+
                 if (dto.StatusCode == StatusCodes.Status201Created)
                 {
                     return new ResultResult(dto.Result)

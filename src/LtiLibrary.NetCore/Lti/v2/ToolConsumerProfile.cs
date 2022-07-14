@@ -40,7 +40,7 @@ namespace LtiLibrary.NetCore.Lti.v2
         /// </summary>
         [JsonProperty("capability_offered")]
         public IEnumerable<string> CapabilityOffered { get; set; }
-        
+
         /// <summary>
         /// A globally unique identifier for the service provider. As a best practice, this value should match an 
         /// Internet domain name assigned by ICANN, but any globally unique identifier is acceptable. 

@@ -1,8 +1,8 @@
-﻿using LtiLibrary.NetCore.Common;
+﻿using System;
+using System.Threading.Tasks;
+using LtiLibrary.NetCore.Common;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading.Tasks;
 
 namespace LtiLibrary.AspNetCore.Profiles
 {
@@ -16,7 +16,7 @@ namespace LtiLibrary.AspNetCore.Profiles
     [Consumes(LtiConstants.LtiToolConsumerProfileMediaType)]
     [Produces(LtiConstants.LtiToolConsumerProfileMediaType)]
     public abstract class ToolConsumerProfileControllerBase : ControllerBase
-	{
+    {
         /// <summary>
         /// Return the ToolConsumerProfile.
         /// </summary>
@@ -27,9 +27,9 @@ namespace LtiLibrary.AspNetCore.Profiles
         /// </summary>
         /// <param name="lti_version">The LTI version of the tool provider making the request. Defaults to "LTI-1p0".</param>
         [HttpGet]
-// ReSharper disable InconsistentNaming
+        // ReSharper disable InconsistentNaming
         public async Task<IActionResult> GetAsync(string lti_version = "LTI-1p0")
-// ReSharper restore InconsistentNaming
+        // ReSharper restore InconsistentNaming
         {
             try
             {

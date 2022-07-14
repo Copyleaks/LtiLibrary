@@ -1,12 +1,12 @@
-﻿using LtiLibrary.AspNetCore.Common;
+﻿using System;
+using System.Globalization;
+using System.Threading.Tasks;
+using LtiLibrary.AspNetCore.Common;
 using LtiLibrary.AspNetCore.Extensions;
 using LtiLibrary.NetCore.Common;
 using LtiLibrary.NetCore.Lti.v1;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Globalization;
-using System.Threading.Tasks;
 
 namespace LtiLibrary.AspNetCore.Outcomes.v1
 {
@@ -22,7 +22,7 @@ namespace LtiLibrary.AspNetCore.Outcomes.v1
     [Consumes("application/xml")]
     [Produces("application/xml")]
     public abstract class OutcomesControllerBase : ControllerBase
-	{
+    {
         /// <summary>
         /// Delete the result (grade, score, outcome) from the consumer.
         /// </summary>
@@ -116,7 +116,7 @@ namespace LtiLibrary.AspNetCore.Outcomes.v1
             status.imsx_messageRefIdentifier = messageRefId;
 
             response.imsx_POXBody = new imsx_POXBodyType { Item = responseItem };
-            return new ImsxXmlMediaTypeResult(response) {StatusCode = statusCode};
+            return new ImsxXmlMediaTypeResult(response) { StatusCode = statusCode };
         }
 
         /// <summary>
@@ -130,10 +130,10 @@ namespace LtiLibrary.AspNetCore.Outcomes.v1
         {
             var response = new imsx_POXEnvelopeType
             {
-                imsx_POXHeader = new imsx_POXHeaderType {Item = new imsx_ResponseHeaderInfoType()}
+                imsx_POXHeader = new imsx_POXHeaderType { Item = new imsx_ResponseHeaderInfoType() }
             };
 
-            var item = (imsx_ResponseHeaderInfoType) response.imsx_POXHeader.Item;
+            var item = (imsx_ResponseHeaderInfoType)response.imsx_POXHeader.Item;
             item.imsx_version = imsx_GWSVersionValueType.V10;
             item.imsx_messageIdentifier = Guid.NewGuid().ToString();
             item.imsx_statusInfo = new imsx_StatusInfoType();
@@ -144,7 +144,7 @@ namespace LtiLibrary.AspNetCore.Outcomes.v1
             status.imsx_description = description;
             status.imsx_messageRefIdentifier = messageRefId;
 
-            response.imsx_POXBody = new imsx_POXBodyType {Item = responseItem};
+            response.imsx_POXBody = new imsx_POXBodyType { Item = responseItem };
             return new ImsxXmlMediaTypeResult(response);
         }
 

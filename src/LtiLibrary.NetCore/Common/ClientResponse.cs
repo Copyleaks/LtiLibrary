@@ -33,7 +33,7 @@ namespace LtiLibrary.NetCore.Common
     /// Represents a <see cref="ClientResponse"/> that also contains a Response of type T.
     /// </summary>
     /// <typeparam name="T">The type of the Response object that is in the client response.</typeparam>
-    public class ClientResponse<T> : ClientResponse where T : class 
+    public class ClientResponse<T> : ClientResponse where T : class
     {
         /// <summary>
         /// Get or Set the Response.

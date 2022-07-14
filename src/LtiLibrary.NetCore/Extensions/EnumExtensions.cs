@@ -15,7 +15,7 @@ namespace LtiLibrary.NetCore.Extensions
         /// </summary>
         public static string GetUrn(this Enum value)
         {
-            return 
+            return
                 value.GetType()
                 .GetRuntimeFields()
                 .SingleOrDefault(f => f.Name == value.ToString())

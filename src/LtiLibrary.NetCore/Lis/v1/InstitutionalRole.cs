@@ -1,4 +1,4 @@
-using LtiLibrary.NetCore.Common;
+﻿using LtiLibrary.NetCore.Common;
 
 namespace LtiLibrary.NetCore.Lis.v1
 {

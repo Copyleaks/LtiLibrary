@@ -18,7 +18,7 @@ namespace LtiLibrary.NetCore.Lti.v1
     /// </summary>
     [DataContract]
     [JsonConverter(typeof(LtiRequestJsonConverter))]
-    public class LtiRequest 
+    public class LtiRequest
         : OAuthRequest, IBasicLaunchRequest, IOutcomesManagementRequest, IContentItemSelectionRequest, IContentItemSelection
     {
         #region Static Member Data
@@ -61,7 +61,7 @@ namespace LtiLibrary.NetCore.Lti.v1
         /// Initialize an empty LtiRequest.
         /// </summary>
         /// <remarks>This is used when extracting an LtiRequest from an HttpRequest and for unit tests.</remarks>
-        public LtiRequest() : this(null) {}
+        public LtiRequest() : this(null) { }
 
         /// <summary>
         /// Initialize a new instanace of the LtiRequest class with the specified message type. This also sets up
@@ -90,7 +90,7 @@ namespace LtiLibrary.NetCore.Lti.v1
             }
         }
 
-#endregion
+        #endregion
 
         #region ILtiRequest Parameters
 
@@ -2302,7 +2302,7 @@ namespace LtiLibrary.NetCore.Lti.v1
         {
             if (HttpMethod == null || !HttpMethod.Equals(System.Net.Http.HttpMethod.Post.Method))
             {
-                throw new LtiException($"Invalid HTTP method: {HttpMethod??"null"}.");
+                throw new LtiException($"Invalid HTTP method: {HttpMethod ?? "null"}.");
             }
 
             if (Url == null)
@@ -2315,24 +2315,24 @@ namespace LtiLibrary.NetCore.Lti.v1
             switch (LtiMessageType)
             {
                 case LtiConstants.BasicLaunchLtiMessageType:
-                {
-                    RequireAllOf(RequiredBasicLaunchParameters);
-                    break;
-                }
-                case LtiConstants.ContentItemSelectionRequestLtiMessageType:
-                {
-                    RequireAllOf(RequiredContentItemLaunchParameters);
-                    if (!Uri.IsWellFormedUriString(ContentItemReturnUrl, UriKind.RelativeOrAbsolute))
                     {
-                        throw new LtiException($"Invalid {LtiConstants.ContentItemReturnUrlParameter}: {ContentItemReturnUrl}.");
+                        RequireAllOf(RequiredBasicLaunchParameters);
+                        break;
                     }
-                    break;
-                }
+                case LtiConstants.ContentItemSelectionRequestLtiMessageType:
+                    {
+                        RequireAllOf(RequiredContentItemLaunchParameters);
+                        if (!Uri.IsWellFormedUriString(ContentItemReturnUrl, UriKind.RelativeOrAbsolute))
+                        {
+                            throw new LtiException($"Invalid {LtiConstants.ContentItemReturnUrlParameter}: {ContentItemReturnUrl}.");
+                        }
+                        break;
+                    }
                 case LtiConstants.ContentItemSelectionLtiMessageType:
-                {
-                    RequireAllOf(RequiredContentItemResponseParameters);
-                    break;
-                }
+                    {
+                        RequireAllOf(RequiredContentItemResponseParameters);
+                        break;
+                    }
                 default:
                     throw new LtiException($"Invalid {LtiConstants.LtiMessageTypeParameter}: {LtiMessageType}.");
             }

@@ -12,7 +12,7 @@ namespace LtiLibrary.NetCore.Extensions
         /// <summary>
         /// The set of characters that are unreserved in RFC 2396 but are NOT unreserved in RFC 3986.
         /// </summary>
-        private static readonly string[] UriRfc3986CharsToEscape = {"!", "*", "'", "(", ")"};
+        private static readonly string[] UriRfc3986CharsToEscape = { "!", "*", "'", "(", ")" };
 
         /// <summary>
         /// Returns an encoded version of the string per RFC 3986.

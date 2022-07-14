@@ -2,8 +2,8 @@
 
 namespace LtiLibrary.NetCore.Lti.v1
 {
-	internal interface IAssignmentLinkItem : IContentItem
-	{
-		LineItem LineItem { get; set; }
-	}
+    internal interface IAssignmentLinkItem : IContentItem
+    {
+        LineItem LineItem { get; set; }
+    }
 }

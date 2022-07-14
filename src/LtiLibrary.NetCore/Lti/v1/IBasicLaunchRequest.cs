@@ -1,4 +1,4 @@
-namespace LtiLibrary.NetCore.Lti.v1
+ï»¿namespace LtiLibrary.NetCore.Lti.v1
 {
     internal interface IBasicLaunchRequest : ILtiRequest
     {
@@ -38,7 +38,7 @@ namespace LtiLibrary.NetCore.Lti.v1
         string LisResultSourcedId { get; set; }
 
         /// <summary>
-        /// A plain text description of the link’s destination, suitable for display alongside the link. 
+        /// A plain text description of the linkâ€™s destination, suitable for display alongside the link. 
         /// Typically no more than a few lines long.
         /// <para>
         /// Parameter: resource_link_description.
@@ -77,7 +77,7 @@ namespace LtiLibrary.NetCore.Lti.v1
         /// A comma separated list of the user_id values which the current user can access as a mentor. 
         /// The typical use case for this parameter is where the Mentor role represents a parent, guardian or auditor. 
         /// It may be used in different ways by each TP, but the general expectation is that the mentor will be provided with
-        /// access to tracking and summary information, but not necessarily the user’s personal content or assignment submissions. 
+        /// access to tracking and summary information, but not necessarily the userâ€™s personal content or assignment submissions. 
         /// In order to accommodate user_id values which contain a comma, each user_id should be url-encoded. 
         /// This also means that each user_id from the comma separated list should url-decoded before a TP uses it. 
         /// This parameter should only be used when one of the roles passed for the current user is for urn:lti:role:ims/lis/Mentor.

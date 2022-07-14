@@ -1,4 +1,4 @@
-using LtiLibrary.NetCore.Common;
+﻿using LtiLibrary.NetCore.Common;
 using Newtonsoft.Json;
 
 namespace LtiLibrary.NetCore.Lis.v1

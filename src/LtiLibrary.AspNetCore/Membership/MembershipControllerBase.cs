@@ -1,11 +1,11 @@
-﻿using LtiLibrary.AspNetCore.Common;
+﻿using System;
+using System.Threading.Tasks;
+using LtiLibrary.AspNetCore.Common;
 using LtiLibrary.AspNetCore.Extensions;
 using LtiLibrary.NetCore.Common;
 using LtiLibrary.NetCore.Lis.v1;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading.Tasks;
 
 namespace LtiLibrary.AspNetCore.Membership
 {
@@ -21,7 +21,7 @@ namespace LtiLibrary.AspNetCore.Membership
     [Consumes(LtiConstants.LisMembershipContainerMediaType)]
     [Produces(LtiConstants.LisMembershipContainerMediaType)]
     public abstract class MembershipControllerBase : ControllerBase
-	{
+    {
         /// <summary>
         /// Populate the <see cref="GetMembershipResponse"/> with the membership and set the StatusCode
         /// to signify success or failure.
@@ -127,14 +127,14 @@ namespace LtiLibrary.AspNetCore.Membership
             return new UnauthorizedResponse();
         }
 
-		/// <summary>
-		/// Creates a <see cref="UnauthorizedResponse" /> that produces a <see cref="StatusCodes.Status401Unauthorized" /> response.
-		/// </summary>
-		/// <param name="value">The content value to format in the entity body.</param>
-		/// <returns>The created <see cref="UnauthorizedResponse" /> for the response.</returns>
-		public UnauthorizedResponse Unauthorized(object value)
-		{
-			return new UnauthorizedResponse(value);
-		}
-	}
+        /// <summary>
+        /// Creates a <see cref="UnauthorizedResponse" /> that produces a <see cref="StatusCodes.Status401Unauthorized" /> response.
+        /// </summary>
+        /// <param name="value">The content value to format in the entity body.</param>
+        /// <returns>The created <see cref="UnauthorizedResponse" /> for the response.</returns>
+        public UnauthorizedResponse Unauthorized(object value)
+        {
+            return new UnauthorizedResponse(value);
+        }
+    }
 }

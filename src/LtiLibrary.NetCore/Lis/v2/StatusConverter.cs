@@ -53,7 +53,7 @@ namespace LtiLibrary.NetCore.Lis.v2
 
             if (value.GetType().GetTypeInfo().IsAssignableFrom(typeof(Status)))
             {
-                var e = (Enum) value;
+                var e = (Enum)value;
                 var enumName = e.ToString("G");
                 writer.WriteValue($"liss:{enumName}");
                 return;

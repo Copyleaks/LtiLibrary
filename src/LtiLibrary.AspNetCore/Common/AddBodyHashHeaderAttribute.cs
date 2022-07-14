@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Http.Internal;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace LtiLibrary.AspNetCore.Common
 {

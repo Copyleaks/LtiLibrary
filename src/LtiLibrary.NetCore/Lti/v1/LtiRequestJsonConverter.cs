@@ -8,7 +8,7 @@ namespace LtiLibrary.NetCore.Lti.v1
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            var request = (LtiRequest) value;
+            var request = (LtiRequest)value;
             writer.WriteStartObject();
             writer.WritePropertyName("url");
             writer.WriteValue(request.Url.AbsoluteUri);

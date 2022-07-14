@@ -20,7 +20,7 @@ namespace LtiLibrary.NetCore.Lis.v2
         /// The maximum number of extra credit points that a learner may earn.
         /// </summary>
         [JsonProperty("extraCreditMaximum")]
-        public float? ExtraCreditMaximum { get; set; } 
+        public float? ExtraCreditMaximum { get; set; }
 
         /// <summary>
         /// The maximum number of points that a learner may earn without extra credit.

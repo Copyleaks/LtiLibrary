@@ -5,7 +5,7 @@ namespace LtiLibrary.NetCore.Lti.v1
     /// <summary>
     /// Add Canvas resultData element to ResultType.
     /// </summary>
-    public partial class ResultType 
+    public partial class ResultType
     {
         /// <summary>
         /// Get or set optional resultData element supported by Canvas.

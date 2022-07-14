@@ -1,10 +1,10 @@
-﻿using Polly;
-using Polly.Retry;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Polly;
+using Polly.Retry;
 
 namespace Copyleaks.Utils.Http
 {

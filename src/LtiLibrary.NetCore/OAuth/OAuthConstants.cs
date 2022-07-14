@@ -55,7 +55,7 @@ namespace LtiLibrary.NetCore.OAuth
         /// <summary>
         /// oauth_signature parameter name.
         /// </summary>
-        public const string SignatureParameter = "oauth_signature"; 
+        public const string SignatureParameter = "oauth_signature";
 
         /// <summary>
         /// oauth_signature_method parameter name.

@@ -16,7 +16,7 @@ namespace LtiLibrary.NetCore.Common
         // Build a lookup table of role URNs
         static LtiConstants()
         {
-            RoleUrns =  new Dictionary<string, Enum>(StringComparer.OrdinalIgnoreCase);
+            RoleUrns = new Dictionary<string, Enum>(StringComparer.OrdinalIgnoreCase);
             foreach (Enum role in Enum.GetValues(typeof(ContextRole)))
             {
                 RoleUrns.Add(role.GetUrn(), role);
