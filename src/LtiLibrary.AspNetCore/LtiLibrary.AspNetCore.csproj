@@ -6,7 +6,7 @@
     <AssemblyTitle>LtiLibrary.AspNetCore</AssemblyTitle>
     <Version>3.1.1</Version>
     <Authors>andyfmiller.com</Authors>
-	  <TargetFramework>net6.0</TargetFramework>
+	  <TargetFramework>net8.0</TargetFramework>
     <AssemblyName>LtiLibrary.AspNetCore</AssemblyName>
     <PackageId>LtiLibrary.AspNetCore</PackageId>
     <PackageTags>IMS;LTI;.NET Core;ASP.NET Core</PackageTags>
